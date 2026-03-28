@@ -1,830 +1,245 @@
-:root {
-  /* CRYSTALLINE GEOMETRIC PALETTE - Sharp jewel tones */
-  --bg-main:#050810;
-  --bg-panel:#080c14;
-  --bg-slot:#0c1220;
-  --border:#1a2d4a;
-  --text-main:#e8f4f8;
-  --text-muted:#5a7a9a;
-  
-  /* Crystalline accent colors - sharp and clear */
-  --crystal-cyan:#00f5ff;
-  --crystal-violet:#8b5cf6;
-  --crystal-rose:#f472b6;
-  --crystal-amber:#fbbf24;
-  --crystal-emerald:#34d399;
-  --crystal-sapphire:#3b82f6;
-  
-  /* Geometric gradients */
-  --grad-crystal:linear-gradient(135deg,var(--crystal-cyan),var(--crystal-violet));
-  --grad-facet:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%);
+:root{
+    --bg-main:#070707;
+    --bg-panel:#0c0c0c;
+    --bg-slot:#111111;
+    --border:#2a1a12;
+    --text-main:#f5f5f5;
+    --text-muted:#b0a090;
+    --heat-low:#fbbf24;
+    --heat-mid:#fb923c;
+    --heat-high:#ef4444;
 }
 
-*{ box-sizing:border-box; margin:0; padding:0; }
+*{ box-sizing:border-box; }
 
 body{
-  margin:0;
-  min-height:100vh;
-  background:
-    /* Geometric polygon background pattern */
-    conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(0,245,255,0.03) 60deg,transparent 120deg,rgba(139,92,246,0.03) 180deg,transparent 240deg,rgba(244,114,182,0.03) 300deg,transparent 360deg),
-    radial-gradient(circle at 20% 80%,rgba(0,245,255,0.15) 0%,transparent 40%),
-    radial-gradient(circle at 80% 20%,rgba(139,92,246,0.15) 0%,transparent 40%),
-    radial-gradient(circle at 50% 50%,rgba(52,211,153,0.08) 0%,transparent 60%),
-    var(--bg-main);
-  font-family:"Inter","Segoe UI",sans-serif;
-  color:var(--text-main);
-  overflow-x:hidden;
-  position:relative;
-}
-
-/* Animated geometric background overlay */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-    /* Hexagonal grid pattern */
-    repeating-linear-gradient(60deg,transparent,transparent 50px,rgba(0,245,255,0.02) 50px,rgba(0,245,255,0.02) 51px),
-    repeating-linear-gradient(-60deg,transparent,transparent 50px,rgba(139,92,246,0.02) 50px,rgba(139,92,246,0.02) 51px);
-  pointer-events:none;
-  z-index:0;
-  animation:geometricShift 20s linear infinite;
-}
-
-@keyframes geometricShift{
-  0%{ transform:translate(0,0); }
-  100%{ transform:translate(50px,50px); }
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top right, rgba(255,120,0,0.14), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(255,40,0,0.12), transparent 45%),
+        var(--bg-main);
+    font-family:"Inter","Segoe UI",sans-serif;
+    color:var(--text-main);
 }
 
 .wrapper{
-  width:100%;
-  max-width:none;
-  margin:0;
-  padding:20px 16px 60px;
-  position:relative;
-  z-index:1;
+    max-width:1200px;
+    margin:auto;
+    padding:36px 20px 80px;
 }
 
-/* HEADER - Compact diamond crystalline structure */
 .header{
-  text-align:center;
-  margin-bottom:24px;
-  position:relative;
-  padding:20px 0;
-}
-
-/* Diamond shape behind header */
-.header::before{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) rotate(45deg);
-  width:120px;
-  height:120px;
-  background:linear-gradient(135deg,rgba(0,245,255,0.2),rgba(139,92,246,0.2));
-  border:2px solid rgba(0,245,255,0.3);
-  box-shadow:
-    0 0 40px rgba(0,245,255,0.3),
-    inset 0 0 30px rgba(255,255,255,0.05);
-  z-index:-1;
-  animation:diamondPulse 4s ease-in-out infinite;
-}
-
-@keyframes diamondPulse{
-  0%,100%{ transform:translate(-50%,-50%) rotate(45deg) scale(1); opacity:0.6; }
-  50%{ transform:translate(-50%,-50%) rotate(45deg) scale(1.1); opacity:1; }
-}
-
-/* Triangle decorations */
-.header::after{
-  content:"▲ ▼ ◀ ▶";
-  position:absolute;
-  top:-10px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:10px;
-  color:var(--crystal-cyan);
-  letter-spacing:15px;
-  opacity:0.5;
-  animation:triangleFloat 3s ease-in-out infinite;
-}
-
-@keyframes triangleFloat{
-  0%,100%{ transform:translateX(-50%) translateY(0); }
-  50%{ transform:translateX(-50%) translateY(-8px); }
+    text-align:center;
+    margin-bottom:36px;
 }
 
 .header h1{
-  font-size:28px;
-  letter-spacing:3px;
-  font-weight:700;
-  background:linear-gradient(135deg,var(--crystal-cyan),var(--crystal-violet),var(--crystal-rose));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:none;
-  position:relative;
-  display:inline-block;
-  text-transform:uppercase;
+    font-size:32px;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,var(--heat-low),var(--heat-mid),var(--heat-high));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* Geometric underline */
-.header h1::after{
-  content:"";
-  position:absolute;
-  bottom:-8px;
-  left:15%;
-  width:70%;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--crystal-cyan),var(--crystal-violet),transparent);
-  clip-path:polygon(0 50%,10% 0,90% 0,100% 50%,90% 100%,10% 100%);
-}
-
-/* COURSE CONTAINER - Full width faceted crystal panel */
 .course{
-  width:100%;
-  background:
-    linear-gradient(135deg,rgba(8,12,20,0.95),rgba(5,8,16,0.98));
-  border:1px solid var(--border);
-  border-radius:4px;
-  box-shadow:
-    0 0 0 1px rgba(0,245,255,0.1),
-    0 10px 30px rgba(0,0,0,0.8),
-    0 0 30px rgba(0,245,255,0.1);
-  overflow:hidden;
-  position:relative;
-  clip-path:polygon(
-    0 15px,15px 0,
-    calc(100% - 15px) 0,100% 15px,
-    100% calc(100% - 15px),calc(100% - 15px) 100%,
-    15px 100%,0 calc(100% - 15px)
-  );
-  margin-bottom:16px;
-}
-
-/* Faceted edge highlights */
-.course::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(135deg,transparent 40%,rgba(0,245,255,0.1) 50%,transparent 60%),
-    linear-gradient(225deg,transparent 40%,rgba(139,92,246,0.1) 50%,transparent 60%);
-  pointer-events:none;
-}
-
-/* Corner crystal decorations */
-.course::after{
-  content:"◆";
-  position:absolute;
-  top:8px;
-  right:16px;
-  font-size:16px;
-  color:var(--crystal-cyan);
-  opacity:0.6;
-  text-shadow:0 0 15px var(--crystal-cyan);
+    background:linear-gradient(180deg,#0c0c0c,#080808);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:
+        inset 0 0 20px rgba(255,120,0,0.05),
+        0 22px 44px rgba(0,0,0,0.9);
+    overflow:hidden;
 }
 
 .course-header{
-  padding:16px 20px;
-  border-bottom:1px solid var(--border);
-  background:linear-gradient(90deg,rgba(0,245,255,0.05),transparent);
-  position:relative;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);
+    padding:22px 26px;
+    border-bottom:1px solid var(--border);
 }
 
 .course-title{
-  font-size:18px;
-  color:var(--crystal-cyan);
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  position:relative;
-}
-
-/* Hexagon icon before title */
-.course-title::before{
-  content:"⬡";
-  color:var(--crystal-violet);
-  font-size:18px;
-  filter:drop-shadow(0 0 8px var(--crystal-violet));
+    font-size:22px;
+    color:var(--heat-mid);
+    font-weight:600;
 }
 
 .course-code{
-  font-size:11px;
-  color:var(--text-muted);
-  margin-top:6px;
-  font-family:"Courier New",monospace;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-  gap:6px;
+    font-size:13px;
+    color:var(--text-muted);
+    margin-top:6px;
 }
 
-.course-code::before{
-  content:"◈";
-  color:var(--crystal-amber);
-}
-
-/* UNITS - Compact geometric cards with sharp angles */
 .unit{
-  padding:16px 20px;
-  border-top:1px solid var(--border);
-  position:relative;
-  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
-  background:linear-gradient(135deg,transparent 95%,rgba(0,245,255,0.03) 100%);
+    padding:20px 26px;
+    border-top:1px solid var(--border);
 }
 
-.unit:hover{
-  background:rgba(0,245,255,0.03);
-  transform:translateX(5px);
-}
-
-/* Sharp edge accent */
-.unit::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:3px;
-  background:linear-gradient(180deg,var(--crystal-cyan),var(--crystal-violet),var(--crystal-rose));
-  clip-path:polygon(0 0,100% 8px,100% calc(100% - 8px),0 100%);
-  opacity:0;
-  transition:opacity 0.3s ease;
-}
-
-.unit:hover::before{
-  opacity:1;
-}
-
-/* Triangle bullet points */
 .unit h3{
-  margin:0 0 10px;
-  font-size:14px;
-  color:var(--crystal-cyan);
-  text-transform:uppercase;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.unit h3::before{
-  content:"▸";
-  color:var(--crystal-emerald);
-  font-size:12px;
+    margin:0 0 12px;
+    font-size:17px;
+    color:var(--heat-low);
 }
 
 .unit ul{
-  margin:0;
-  padding-left:0;
-  list-style:none;
+    margin:0;
+    padding-left:20px;
 }
 
 .unit li{
-  font-size:12px;
-  line-height:1.6;
-  margin-bottom:6px;
-  color:var(--text-main);
-  padding-left:18px;
-  position:relative;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:6px;
 }
 
-/* Diamond bullets */
-.unit li::before{
-  content:"◆";
-  position:absolute;
-  left:0;
-  color:var(--crystal-violet);
-  font-size:8px;
-  top:4px;
-  opacity:0.8;
-}
-
-/* SPECIAL BLOCKS - Compact crystalline formation */
 .block{
-  padding:16px 20px;
-  border-top:1px solid var(--border);
-  background:
-    linear-gradient(135deg,rgba(0,245,255,0.06),rgba(139,92,246,0.08),rgba(244,114,182,0.04));
-  position:relative;
-  overflow:hidden;
-  clip-path:polygon(
-    0 0,100% 0,
-    100% calc(100% - 20px),calc(100% - 20px) 100%,
-    0 100%
-  );
-}
-
-/* Rotating geometric background */
-.block::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:200%;
-  height:200%;
-  background:
-    repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(0,245,255,0.03) 30deg,transparent 60deg);
-  animation:rotateCrystal 10s linear infinite;
-  transform-origin:center;
-  pointer-events:none;
-  margin-top:-100%;
-  margin-left:-100%;
-}
-
-@keyframes rotateCrystal{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
+    padding:18px 26px;
+    border-top:1px solid var(--border);
+    background:linear-gradient(135deg,rgba(255,120,0,0.15),rgba(255,40,0,0.25));
 }
 
 .block h4{
-  margin:0 0 10px;
-  color:var(--crystal-amber);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  position:relative;
-  z-index:1;
-}
-
-.block h4::before{
-  content:"⚡";
-  filter:drop-shadow(0 0 6px var(--crystal-amber));
+    margin:0 0 10px;
+    color:#fde047;
 }
 
 .block ol{
-  margin:0;
-  padding-left:0;
-  position:relative;
-  z-index:1;
-  list-style:none;
-  counter-reset:crystal-counter;
+    margin:0;
+    padding-left:20px;
 }
-
-.block ol li{
-  counter-increment:crystal-counter;
-  margin-bottom:8px;
-  padding-left:24px;
-  position:relative;
-  font-size:12px;
-}
-
-.block ol li::before{
-  content:counter(crystal-counter);
-  position:absolute;
-  left:0;
-  top:0;
-  width:18px;
-  height:18px;
-  background:linear-gradient(135deg,var(--crystal-cyan),var(--crystal-violet));
-  color:var(--bg-main);
-  font-size:10px;
-  font-weight:bold;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
-}
-
-/* ===== HOME PAGE SUBJECT BOXES - Screen-filling crystal prisms ===== */
+/* ===== HOME PAGE SUBJECT BOXES ===== */
 
 .subject-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:12px;
-  margin-top:16px;
-  width:100%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+    margin-top:40px;
 }
 
 .subject-box{
-  position:relative;
-  padding:20px;
-  background:
-    linear-gradient(145deg,rgba(12,18,32,0.9),rgba(8,12,20,0.95));
-  border:1px solid var(--border);
-  text-decoration:none;
-  color:var(--text-main);
-  box-shadow:
-    0 0 0 1px rgba(0,245,255,0.05),
-    0 15px 30px rgba(0,0,0,0.6),
-    0 0 20px rgba(0,245,255,0.08);
-  transition:all 0.5s cubic-bezier(0.4,0,0.2,1);
-  overflow:hidden;
-  clip-path:polygon(
-    15px 0,calc(100% - 15px) 0,
-    100% 15px,100% calc(100% - 15px),
-    calc(100% - 15px) 100%,15px 100%,
-    0 calc(100% - 15px),0 15px
-  );
-  min-height:140px;
+    position:relative;
+    padding:28px 26px 30px;
+    background:
+        linear-gradient(180deg,#0e0e0e,#080808);
+    border:1px solid var(--border);
+    border-radius:20px;
+    text-decoration:none;
+    color:var(--text-main);
+    box-shadow:
+        inset 0 0 24px rgba(255,120,0,0.06),
+        0 18px 40px rgba(0,0,0,0.85);
+    transition:all 0.35s ease;
+    overflow:hidden;
 }
 
-/* Faceted glass overlay */
 .subject-box::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(135deg,transparent 30%,rgba(255,255,255,0.05) 50%,transparent 70%),
-    linear-gradient(225deg,transparent 30%,rgba(0,245,255,0.05) 50%,transparent 70%);
-  opacity:0;
-  transition:opacity 0.4s ease;
-}
-
-/* Glowing border on hover */
-.subject-box::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:linear-gradient(135deg,var(--crystal-cyan),var(--crystal-violet),var(--crystal-rose),var(--crystal-cyan));
-  z-index:-1;
-  opacity:0;
-  transition:opacity 0.4s ease;
-  clip-path:polygon(
-    17px 0,calc(100% - 17px) 0,
-    100% 17px,100% calc(100% - 17px),
-    calc(100% - 17px) 100%,17px 100%,
-    0 calc(100% - 17px),0 17px
-  );
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at top right,
+        rgba(255,140,0,0.22),transparent 55%);
+    opacity:0;
+    transition:opacity 0.35s ease;
 }
 
 .subject-box:hover::before{
-  opacity:1;
-}
-
-.subject-box:hover::after{
-  opacity:1;
-  animation:borderRotate 3s linear infinite;
-}
-
-@keyframes borderRotate{
-  0%{ filter:hue-rotate(0deg); }
-  100%{ filter:hue-rotate(360deg); }
+    opacity:1;
 }
 
 .subject-box:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:
-    0 0 0 1px rgba(0,245,255,0.2),
-    0 25px 50px rgba(0,0,0,0.8),
-    0 0 40px rgba(0,245,255,0.2);
+    transform:translateY(-10px) scale(1.015);
+    box-shadow:
+        inset 0 0 30px rgba(255,120,0,0.12),
+        0 30px 60px rgba(0,0,0,0.95);
 }
-
-/* Corner crystal decorations */
-.subject-box .corner-tl,
-.subject-box .corner-tr,
-.subject-box .corner-bl,
-.subject-box .corner-br{
-  position:absolute;
-  width:8px;
-  height:8px;
-  border:2px solid var(--crystal-cyan);
-  opacity:0.4;
-}
-
-.subject-box .corner-tl{ top:6px; left:6px; border-right:none; border-bottom:none; }
-.subject-box .corner-tr{ top:6px; right:6px; border-left:none; border-bottom:none; }
-.subject-box .corner-bl{ bottom:6px; left:6px; border-right:none; border-top:none; }
-.subject-box .corner-br{ bottom:6px; right:6px; border-left:none; border-top:none; }
 
 .subject-title{
-  font-size:16px;
-  font-weight:700;
-  background:linear-gradient(135deg,var(--crystal-cyan),var(--crystal-violet));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:8px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.subject-title::after{
-  content:"◆";
-  font-size:10px;
-  color:var(--crystal-rose);
-  -webkit-text-fill-color:var(--crystal-rose);
+    font-size:20px;
+    font-weight:600;
+    color:var(--heat-mid);
+    margin-bottom:10px;
 }
 
 .subject-code{
-  font-size:10px;
-  color:var(--text-muted);
-  margin-bottom:10px;
-  font-family:"Courier New",monospace;
-  letter-spacing:1px;
-  display:inline-block;
-  padding:4px 8px;
-  background:rgba(0,245,255,0.05);
-  border:1px solid rgba(0,245,255,0.1);
-  clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%);
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:16px;
 }
 
 .subject-desc{
-  font-size:12px;
-  line-height:1.5;
-  color:#94a3b8;
-  margin-bottom:16px;
+    font-size:14px;
+    line-height:1.6;
+    color:#e6e6e6;
 }
 
-/* Geometric tag */
 .subject-tag{
-  position:absolute;
-  bottom:12px;
-  right:16px;
-  font-size:9px;
-  padding:6px 12px;
-  background:linear-gradient(135deg,rgba(0,245,255,0.15),rgba(139,92,246,0.15));
-  color:var(--crystal-cyan);
-  border:1px solid rgba(0,245,255,0.3);
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-weight:600;
-  clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,10px 100%,0 50%);
-  transition:all 0.3s ease;
+    position:absolute;
+    bottom:16px;
+    right:20px;
+    font-size:11px;
+    padding:6px 12px;
+    border-radius:20px;
+    background:rgba(255,120,0,0.18);
+    color:#fde68a;
+    border:1px solid rgba(255,160,0,0.3);
 }
-
-.subject-box:hover .subject-tag{
-  background:linear-gradient(135deg,rgba(0,245,255,0.3),rgba(139,92,246,0.3));
-  transform:scale(1.05);
-}
-
-/* SEMESTER HEADERS - Compact sacred geometry */
 .sem-title{
-  text-align:center;
-  margin-bottom:12px;
-  color:var(--crystal-cyan);
-  letter-spacing:2px;
-  font-size:22px;
-  font-weight:700;
-  text-transform:uppercase;
-  position:relative;
-  display:inline-block;
-  width:100%;
-  padding:20px 0;
-}
-
-/* Hexagon decoration */
-.sem-title::before{
-  content:"⬡";
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  font-size:80px;
-  color:var(--crystal-cyan);
-  opacity:0.05;
-  z-index:-1;
-}
-
-.sem-title::after{
-  content:"";
-  position:absolute;
-  bottom:5px;
-  left:35%;
-  width:30%;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--crystal-cyan),var(--crystal-violet),transparent);
+    text-align:center;
+    margin-bottom:14px;
+    color:var(--heat-mid);
+    letter-spacing:1px;
 }
 
 .sem-subtitle{
-  text-align:center;
-  font-size:12px;
-  color:var(--text-muted);
-  margin-bottom:24px;
-  letter-spacing:1px;
-  text-transform:uppercase;
+    text-align:center;
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:36px;
 }
 
-/* ===== UPDATES PAGE - Compact crystalline notifications ===== */
+
+.subject-box .subject-desc {
+    font-size: 0.85rem; /* smaller so it fits neatly */
+    line-height: 1.3;
+    color: #555;
+}
+
+.subject-box .subject-tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+}
+/* UPDATES PAGE */
 .updates-page{
-  margin-top:16px;
-  display:grid;
-  gap:12px;
-  width:100%;
-}
-
-/* Geometric update card */
-.update-card{
-  background:linear-gradient(135deg,rgba(8,12,20,0.95),rgba(5,8,16,0.98));
-  border-radius:0;
-  padding:16px 20px;
-  box-shadow:
-    0 0 0 1px rgba(0,245,255,0.1),
-    0 8px 25px rgba(0,0,0,0.5),
-    0 0 15px rgba(0,245,255,0.1);
-  border-left:3px solid var(--crystal-cyan);
-  position:relative;
-  overflow:hidden;
-  clip-path:polygon(
-    0 0,calc(100% - 15px) 0,
-    100% 15px,100% 100%,
-    15px 100%,0 calc(100% - 15px)
-  );
-  transition:all 0.4s ease;
-}
-
-/* Faceted shine */
-.update-card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  right:0;
-  width:80px;
-  height:100%;
-  background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,0.05) 50%,transparent 70%);
-  opacity:0;
-  transition:opacity 0.3s ease;
-}
-
-.update-card:hover::before{
-  opacity:1;
-}
-
-.update-card:hover{
-  transform:translateX(6px);
-  box-shadow:
-    0 0 0 1px rgba(0,245,255,0.2),
-    0 12px 35px rgba(0,0,0,0.6),
-    0 0 30px rgba(0,245,255,0.2);
-}
-
-/* Urgent - Rose crystal */
-.update-card.urgent{
-  border-left-color:var(--crystal-rose);
-  background:linear-gradient(135deg,rgba(244,114,182,0.08),rgba(5,8,16,0.98));
-  animation:pulseCrystal 4s ease-in-out infinite;
-}
-
-@keyframes pulseCrystal{
-  0%,100%{ box-shadow:0 0 0 1px rgba(244,114,182,0.1),0 8px 25px rgba(0,0,0,0.5),0 0 15px rgba(244,114,182,0.1); }
-  50%{ box-shadow:0 0 0 1px rgba(244,114,182,0.2),0 12px 35px rgba(0,0,0,0.6),0 0 30px rgba(244,114,182,0.3); }
-}
-
-.update-date{
-  font-size:10px;
-  color:var(--crystal-cyan);
-  margin-bottom:6px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  font-family:"Courier New",monospace;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.update-date::before{
-  content:"◈";
-  color:var(--crystal-violet);
-}
-
-.update-text{
-  color:var(--text-main);
-  font-size:13px;
-  line-height:1.6;
-}
-
-/* Additional geometric elements */
-.floating-geometry{
-  position:fixed;
-  pointer-events:none;
-  z-index:0;
-  opacity:0.1;
-}
-
-.floating-geometry.triangle{
-  width:0;
-  height:0;
-  border-left:40px solid transparent;
-  border-right:40px solid transparent;
-  border-bottom:69px solid var(--crystal-cyan);
-  animation:floatTriangle 15s ease-in-out infinite;
-}
-
-.floating-geometry.hexagon{
-  width:50px;
-  height:28px;
-  background:var(--crystal-violet);
-  position:relative;
-  animation:floatHexagon 20s ease-in-out infinite;
-}
-
-.floating-geometry.hexagon::before,
-.floating-geometry.hexagon::after{
-  content:"";
-  position:absolute;
-  width:0;
-  border-left:25px solid transparent;
-  border-right:25px solid transparent;
-}
-
-.floating-geometry.hexagon::before{
-  bottom:100%;
-  border-bottom:14px solid var(--crystal-violet);
-}
-
-.floating-geometry.hexagon::after{
-  top:100%;
-  border-top:14px solid var(--crystal-violet);
-}
-
-@keyframes floatTriangle{
-  0%,100%{ transform:translate(0,0) rotate(0deg); }
-  33%{ transform:translate(30px,-30px) rotate(120deg); }
-  66%{ transform:translate(-20px,20px) rotate(240deg); }
-}
-
-@keyframes floatHexagon{
-  0%,100%{ transform:translate(0,0) rotate(0deg); }
-  50%{ transform:translate(-40px,40px) rotate(180deg); }
-}
-
-/* Scrollbar - Geometric styling */
-::-webkit-scrollbar{
-  width:8px;
-}
-
-::-webkit-scrollbar-track{
-  background:var(--bg-main);
-  border-left:1px solid var(--border);
-}
-
-::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg,var(--crystal-cyan),var(--crystal-violet));
-  clip-path:polygon(0 4px,50% 0,100% 4px,100% calc(100% - 4px),50% 100%,0 calc(100% - 4px));
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background:linear-gradient(180deg,var(--crystal-violet),var(--crystal-rose));
-}
-
-/* Selection - Crystalline highlight */
-::selection{
-  background:rgba(0,245,255,0.3);
-  color:var(--text-main);
-  text-shadow:0 0 10px var(--crystal-cyan);
-}
-
-/* Responsive adjustments */
-@media(max-width:768px){
-  .wrapper{ padding:16px 12px 40px; }
-  .header{ margin-bottom:16px; padding:16px 0; }
-  .header h1{ font-size:22px; letter-spacing:2px; }
-  .header::before{ width:80px; height:80px; }
-  
-  .course{ clip-path:none; border-radius:6px; }
-  .course-header{ padding:12px 16px; }
-  .course-title{ font-size:16px; }
-  
-  .unit{ padding:12px 16px; }
-  .unit h3{ font-size:13px; }
-  
-  .subject-grid{ 
-    grid-template-columns:1fr; 
-    gap:10px; 
-  }
-  .subject-box{ 
-    clip-path:none; 
-    border-radius:8px; 
-    min-height:auto;
-    padding:16px;
-  }
-  .subject-box::after{ clip-path:none; border-radius:10px; }
-  .subject-title{ font-size:15px; }
-  
-  .update-card{ clip-path:none; border-radius:6px; padding:12px 16px; }
-  
-  .sem-title{ font-size:18px; padding:16px 0; }
-  .sem-title::before{ font-size:60px; }
-}
-
-@media(min-width:1200px){
-  .subject-grid{
-    grid-template-columns:repeat(4,1fr);
-  }
-}
-
-@media(min-width:1600px){
-  .subject-grid{
-    grid-template-columns:repeat(5,1fr);
-  }
-  .course{
+    margin-top:20px;
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1px;
-    background:var(--border);
-  }
-  .course-header{
-    grid-column:1/-1;
-  }
+    gap:16px;
+}
+
+/* NOTICE CARD */
+.update-card{
+    background:#020617;
+    border-radius:14px;
+    padding:16px;
+    box-shadow:0 0 15px rgba(59,130,246,0.25);
+    border-left:5px solid #2563eb;
+}
+
+/* URGENT NOTICE */
+.update-card.urgent{
+    border-left-color:#dc2626;
+    background:#160b0b;
+}
+
+/* DATE */
+.update-date{
+    font-size:12px;
+    color:#94a3b8;
+    margin-bottom:6px;
+    letter-spacing:0.5px;
+}
+
+/* TEXT */
+.update-text{
+    color:#e5e7eb;
+    font-size:15px;
 }
